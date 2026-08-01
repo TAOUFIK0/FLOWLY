@@ -1,0 +1,306 @@
+/* ==========================================
+   Layout Principal
+   ========================================== */
+.planner-layout { 
+  display: flex; 
+  min-height: 100vh; 
+  background: var(--bg-light, #f8f9fc); 
+  position: relative;
+}
+
+.planner-main { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  overflow: hidden; 
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+  margin-left: 30px;
+}
+
+.planner-container { 
+  display: flex; 
+  flex-direction: column; 
+  height: 100vh; 
+  padding: 24px;
+  padding-left: 40px;
+  min-width: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================
+   En-tête
+   ========================================== */
+.planner-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 24px; 
+  flex-shrink: 0; 
+}
+
+.planner-header-left { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}
+
+.planner-title { 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: var(--text-dark, #1a1a2e); 
+  margin: 0; 
+  text-transform: capitalize;
+}
+
+.planner-nav { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+.planner-nav button { 
+  background: white; 
+  border: 1px solid var(--border, #e2e8f0); 
+  padding: 6px 12px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  color: #64748b; 
+  font-weight: 500; 
+}
+
+.planner-nav button:hover { background: #f8fafc; }
+
+.planner-view-toggle { 
+  display: flex; 
+  background: white; 
+  border: 1px solid var(--border, #e2e8f0); 
+  border-radius: 8px; 
+  overflow: hidden; 
+}
+
+.planner-view-toggle button { 
+  padding: 8px 16px; 
+  border: none; 
+  background: transparent; 
+  cursor: pointer; 
+  font-weight: 500; 
+  color: #64748b; 
+  transition: 0.2s; 
+}
+
+.planner-view-toggle button.active { 
+  background: #128C7E; 
+  color: white; 
+}
+
+/* ==========================================
+   Grille — CSS Grid unique (1 seule source de vérité
+   pour la hauteur des lignes -> alignement garanti,
+   plus de dérive entre la gouttière d'heures et les jours)
+   ========================================== */
+.planner-grid {
+  flex: 1;
+  min-height: 0; /* indispensable pour que overflow:auto fonctionne dans un parent flex-column */
+  display: grid;
+  grid-auto-rows: 60px; /* = hauteur d'une ligne d'heure, et aussi de la ligne d'en-tête */
+  width: 100%;
+  min-width: 0;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   Coin haut-gauche (sticky top + left)
+   ========================================== */
+.planner-corner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  background: linear-gradient(180deg, #128C7E 0%, #0d6e63 100%);
+  border-right: 3px solid #128C7E;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 0 12px rgba(18, 140, 126, 0.3);
+}
+
+/* ==========================================
+   En-têtes des jours (ligne 1, sticky top)
+   ========================================== */
+.planner-day-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-bottom: 2px solid #e2e8f0;
+  border-right: 2px solid #e2e8f0;
+}
+
+.planner-day-name { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: #94a3b8; }
+.planner-day-num { font-size: 1.25rem; font-weight: 700; color: var(--text-dark, #1a1a2e); margin-top: 2px; }
+
+.planner-today-header .planner-day-num {
+  color: white;
+  background: #128C7E;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   Colonne des heures (sticky left, une cellule par ligne)
+   ========================================== */
+.planner-hour-label {
+  position: sticky;
+  left: 0;
+  z-index: 15;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 4px 12px 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(180deg, #128C7E 0%, #0d6e63 100%);
+  border-right: 3px solid #128C7E;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 2px 0 12px rgba(18, 140, 126, 0.3);
+}
+
+/* Seul le texte remonte visuellement vers la ligne de l'heure — le fond,
+   la bordure et l'ombre de la cellule restent, eux, pile alignés sur la grille. */
+.planner-hour-label-text {
+  display: inline-block;
+  transform: translateY(-8px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   Créneaux (une cellule de grille par jour x heure)
+   ========================================== */
+.planner-slot {
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.planner-slot-odd { background-color: #ffffff; }
+.planner-slot-even { background-color: #f8fafc; }
+.planner-today-slot { background-color: rgba(18, 140, 126, 0.03); }
+.planner-slot:hover { background-color: #ecfdf5 !important; }
+
+/* ==========================================
+   Événements
+   ========================================== */
+.planner-event { 
+  position: absolute; 
+  left: 4px; right: 4px; 
+  border-radius: 6px; 
+  padding: 4px 8px; 
+  cursor: pointer; 
+  overflow: hidden; 
+  z-index: 1; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+
+.event-title { font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.event-time { font-size: 0.7rem; opacity: 0.8; }
+
+/* ==========================================
+   Ligne rouge de l'heure actuelle
+   La cellule wrapper occupe toute la colonne du jour "aujourd'hui"
+   (de la ligne 2 à la dernière ligne d'heure) via grid-row/grid-column
+   -> elle défile avec le contenu, ce qui permet au scroll (voir JS)
+   de la centrer verticalement dans la page au chargement.
+   ========================================== */
+.planner-today-line-wrapper {
+  position: relative;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.planner-time-indicator { 
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  height: 2px; 
+  background: #ef4444; 
+  z-index: 26;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+}
+
+.time-dot { 
+  position: absolute; 
+  left: -4px; 
+  top: -3px; 
+  width: 8px; 
+  height: 8px; 
+  background: #ef4444; 
+  border-radius: 50%;
+  z-index: 27;
+  box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+}
+
+/* ==========================================
+   Modal
+   ========================================== */
+.planner-modal-overlay { 
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); 
+  display: flex; align-items: center; justify-content: center; z-index: 50; 
+}
+
+.planner-modal { background: white; border-radius: 16px; width: 90%; max-width: 480px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+.planner-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #f1f5f9; }
+.planner-modal-header h3 { margin: 0; font-size: 1.1rem; }
+.planner-modal-header button { background: none; border: none; cursor: pointer; color: #94a3b8; padding: 4px; border-radius: 6px; }
+.planner-modal-header button:hover { background: #f1f5f9; color: #475569; }
+
+.planner-modal-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.875rem; font-weight: 600; color: #475569; }
+.form-group input, .form-group textarea { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; font-size: 0.9375rem; outline: none; font-family: inherit; transition: border 0.2s; background: white; box-sizing: border-box; }
+.form-group input:focus, .form-group textarea:focus { border-color: #128C7E; box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.1); }
+.form-group input:disabled { background: #f8fafc; color: #94a3b8; }
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+
+.color-picker { display: flex; gap: 8px; }
+.color-dot { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
+.color-dot:hover, .color-dot.active { transform: scale(1.1); border-color: #1a1a2e; }
+
+.planner-modal-footer { padding: 16px 24px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+.modal-actions-right { display: flex; gap: 8px; margin-left: auto; }
+
+.btn-cancel { padding: 8px 16px; border-radius: 8px; border: 1px solid #e2e8f0; background: white; cursor: pointer; font-weight: 500; color: #475569; }
+.btn-cancel:hover { background: #f8fafc; }
+.btn-save { padding: 8px 16px; border-radius: 8px; border: none; background: #128C7E; color: white; cursor: pointer; font-weight: 600; }
+.btn-save:hover { background: #0f766e; }
+.btn-delete { padding: 8px 16px; border-radius: 8px; border: none; background: #fee2e2; color: #ef4444; cursor: pointer; font-weight: 600; }
+.btn-delete:hover { background: #fecaca; }

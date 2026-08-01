@@ -1,0 +1,514 @@
+/* ========================================
+   PricingPage — Styles dédiés
+   Préfixe : pp
+   ======================================== */
+
+.pp-page {
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════
+   HERO
+   ══════════════════════════════════════ */
+.pp-hero {
+  padding: 140px 0 48px;
+  text-align: center;
+  background: linear-gradient(165deg, var(--primary-50) 0%, var(--bg) 60%);
+}
+
+[data-theme="dark"] .pp-hero {
+  background: linear-gradient(165deg, var(--bg) 0%, var(--bg-dark) 60%);
+}
+
+.pp-hero-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pp-hero-container .badge {
+  margin-bottom: 20px;
+}
+
+.pp-hero-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.pp-hero-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+/* ── Toggle mensuel / annuel ── */
+.pp-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pp-toggle-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pp-toggle-active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pp-toggle-save {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: var(--success-light);
+  color: #065F46;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+}
+
+/* Switch */
+.pp-toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.pp-toggle-on {
+  background: var(--primary);
+}
+
+.pp-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.pp-toggle-on .pp-toggle-knob {
+  transform: translateX(20px);
+}
+
+/* ══════════════════════════════════════
+   CARTES DE PRIX
+   ══════════════════════════════════════ */
+.pp-cards {
+  padding: 0 0 80px;
+  background: linear-gradient(165deg, var(--primary-50) 0%, var(--bg) 60%);
+}
+
+[data-theme="dark"] .pp-cards {
+  background: linear-gradient(165deg, var(--bg) 0%, var(--bg-dark) 60%);
+}
+
+.pp-cards-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Carte ── */
+.pp-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Populaire */
+.pp-card-popular {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.15);
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.pp-card-popular:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(13, 148, 136, 0.2);
+}
+
+.pp-card-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 18px;
+  background: var(--primary);
+  color: var(--text-inverse);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Header */
+.pp-card-header {
+  margin-bottom: 24px;
+}
+
+.pp-card-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.pp-card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Pricing */
+.pp-card-pricing {
+  margin-bottom: 24px;
+  min-height: 72px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.pp-card-free .pp-card-amount {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.pp-card-paid {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.pp-card-currency {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.pp-card-paid .pp-card-amount {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.pp-card-period {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-left: 4px;
+  line-height: 1.4;
+}
+
+/* CTA */
+.pp-card-cta {
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+/* Séparateur */
+.pp-card-separator {
+  height: 1px;
+  background: var(--border-light);
+  margin-bottom: 24px;
+}
+
+/* Features */
+.pp-card-features-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pp-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pp-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.pp-feature-excluded {
+  color: var(--text-muted);
+  opacity: 0.55;
+}
+
+.pp-feature-check {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.pp-feature-cross {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════ */
+.pp-faq {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.pp-faq-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pp-faq-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pp-faq-title {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.pp-faq-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pp-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pp-faq-item {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
+}
+
+.pp-faq-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.pp-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.pp-faq-question:hover {
+  color: var(--primary-dark);
+}
+
+.pp-faq-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.pp-faq-open .pp-faq-icon {
+  transform: rotate(45deg);
+  color: var(--primary);
+}
+
+.pp-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition);
+}
+
+.pp-faq-open .pp-faq-answer {
+  max-height: 200px;
+}
+
+.pp-faq-answer p {
+  padding: 0 24px 20px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   CTA BOTTOM
+   ══════════════════════════════════════ */
+.pp-bottom {
+  padding: 80px 0;
+  background: var(--bg-dark);
+}
+
+.pp-bottom-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.pp-bottom-container h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.pp-bottom-container p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.pp-bottom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .pp-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .pp-card-popular {
+    transform: none;
+  }
+
+  .pp-card-popular:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 640px) {
+  .pp-hero {
+    padding: 120px 0 36px;
+  }
+
+  .pp-hero-subtitle {
+    font-size: 16px;
+  }
+
+  .pp-toggle {
+    padding: 5px 6px 5px 16px;
+    gap: 10px;
+  }
+
+  .pp-toggle-label {
+    font-size: 13px;
+  }
+
+  .pp-card {
+    padding: 28px 22px;
+  }
+
+  .pp-card-paid .pp-card-amount {
+    font-size: 40px;
+  }
+
+  .pp-bottom-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pp-bottom-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pp-hero {
+    padding: 100px 0 28px;
+  }
+
+  .pp-card-name {
+    font-size: 20px;
+  }
+
+  .pp-card-paid .pp-card-amount {
+    font-size: 36px;
+  }
+
+  .pp-faq-question {
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+
+  .pp-faq-answer p {
+    padding: 0 18px 16px;
+    font-size: 14px;
+  }
+}

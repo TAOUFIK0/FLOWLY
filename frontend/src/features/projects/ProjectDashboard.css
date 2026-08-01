@@ -1,0 +1,219 @@
+.dashboard-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  /* La magie opère ici : on limite la hauteur du bloc à la taille de l'écran */
+  height: calc(100vh - 180px); 
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted, #64748b);
+}
+
+/* Carte Globale */
+.dashboard-global-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+  padding: 24px 32px;
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+  /* Empêche cette carte de rétrécir si la liste est grande */
+  flex-shrink: 0; 
+}
+
+.global-stats-icon {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.global-stats-text {
+  flex: 1;
+}
+
+.global-stats-text h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.global-progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.global-progress-bar-fill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.global-percentage {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* Liste des membres */
+.dashboard-members-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a2e);
+  margin-bottom: 16px;
+  /* Empêche le titre de rétrécir */
+  flex-shrink: 0; 
+}
+
+/* LA LISTE QUI SCROLLE */
+.dashboard-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Prend tout l'espace restant sous la carte globale */
+  flex: 1; 
+  /* Oblige le scroll à se faire ICI et non sur la page entière */
+  overflow-y: auto; 
+  /* Indispensable pour que le scroll fonctionne dans un flexbox */
+  min-height: 0; 
+  padding-right: 8px;
+}
+
+/* Barre de défilement visible et jolie */
+.dashboard-members-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-members-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.dashboard-members-list::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 10px;
+}
+
+.dashboard-members-list::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.member-stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-light, #f8f9fc);
+  border: 1px solid var(--border, #e2e8f0);
+  padding: 16px 20px;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* Empêche les cartes de rétrécir */
+  flex-shrink: 0; 
+}
+
+.member-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  overflow: hidden;
+}
+
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-dark, #1a1a2e);
+}
+
+.member-tasks-count {
+  margin: 2px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted, #64748b);
+}
+
+/* Progression Membre */
+.member-progress-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.member-progress-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.member-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #128C7E, #25D366);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.member-percentage {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  min-width: 45px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .dashboard-container {
+    height: calc(100vh - 150px); /* Un peu moins de marge sur mobile */
+  }
+  .dashboard-global-card { 
+    flex-direction: column;
+    text-align: center;
+  }
+  .member-stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .member-progress-section {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,442 @@
+/* ========================================
+   TaskDetailModal — Styles dédiés
+   Préfixe : tdm
+   ======================================== */
+
+/* ── Overlay ── */
+.tdm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 24px;
+  overflow-y: auto;
+  animation: tdm-fadeIn 0.2s ease;
+}
+
+@keyframes tdm-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Modal ── */
+.tdm-modal {
+  width: 100%;
+  max-width: 780px;
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  animation: tdm-slideUp 0.25s ease;
+  overflow: hidden;
+}
+
+@keyframes tdm-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Header ── */
+.tdm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tdm-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tdm-priority {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tdm-label {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.tdm-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: none;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.tdm-close:hover {
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+/* ── Body ── */
+.tdm-body {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  min-height: 400px;
+}
+
+/* ── Main ── */
+.tdm-main {
+  padding: 24px;
+  border-right: 1px solid var(--border-light);
+}
+
+.tdm-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+/* ── Sections ── */
+.tdm-section {
+  margin-bottom: 28px;
+}
+
+.tdm-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.tdm-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 12px 16px;
+  background: var(--bg-dark);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  min-height: 60px;
+}
+
+.tdm-desc:hover {
+  background: var(--border-light);
+}
+
+.tdm-desc-empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.tdm-desc-textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.tdm-desc-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ── Commentaires ── */
+.tdm-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tdm-comment {
+  display: flex;
+  gap: 10px;
+}
+
+.tdm-comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tdm-comment-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.tdm-comment-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tdm-comment-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tdm-comment-time {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tdm-comment-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Formulaire commentaire */
+.tdm-comment-form {
+  display: flex;
+  gap: 8px;
+}
+
+.tdm-comment-input {
+  flex: 1;
+  height: 40px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.tdm-comment-send {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.tdm-comment-send:disabled {
+  opacity: 0.4;
+}
+
+/* ── Sidebar ── */
+.tdm-sidebar {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tdm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tdm-field-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tdm-field-empty {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Assigné */
+.tdm-assignee {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tdm-assignee-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tdm-assignee-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Échéance */
+.tdm-due {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.tdm-due-overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Labels */
+.tdm-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Supprimer */
+.tdm-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--danger);
+  background: none;
+  transition: all var(--transition-fast);
+}
+
+.tdm-delete:hover {
+  background: var(--danger-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .tdm-overlay {
+    padding: 16px;
+  }
+
+  .tdm-body {
+    grid-template-columns: 1fr;
+  }
+
+  .tdm-main {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .tdm-sidebar {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tdm-modal {
+    border-radius: var(--radius-lg);
+  }
+
+  .tdm-header {
+    padding: 12px 16px;
+  }
+
+  .tdm-main {
+    padding: 16px;
+  }
+
+  .tdm-title {
+    font-size: 18px;
+  }
+}
+
+/* --- Labels interactifs --- */
+.tdm-label-removable {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 6px;
+}
+.tdm-label-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  display: flex;
+  padding: 0;
+}
+.tdm-label-remove:hover {
+  opacity: 1;
+}
+.tdm-label-add {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.tdm-label-input {
+  flex: 1;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+}
+.tdm-label-add-btn {
+  font-size: 12px !important;
+  white-space: nowrap;
+}
+
+/* Titre modifiable */
+.tdm-title-input {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: var(--bg-light);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  width: 100%;
+  outline: none;
+}
+.tdm-title:hover {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+}
+
+/* Tuer le souligné vert par défaut du navigateur sur l'assigné */
+.tdm-field a,
+.tdm-field span,
+.tdm-assignee-name {
+  text-decoration: none;
+  color: inherit; /* Empêche de prendre la couleur des liens visités */
+}
+

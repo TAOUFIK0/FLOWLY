@@ -1,0 +1,241 @@
+/* ========================================
+   TaskCard — Styles dédiés
+   Préfixe : tc
+   ======================================== */
+
+.tc-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  cursor: grab;
+  transition: all var(--transition-fast);
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox (optionnel) */
+  -ms-user-select: none;     /* Ancien Edge/IE (optionnel) */
+  user-select: none;
+}
+
+.tc-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
+  transform: translateY(-1px);
+}
+
+.tc-card:active {
+  cursor: grabbing;
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+}
+
+.tc-card-overdue {
+  border-left: 3px solid var(--danger);
+}
+
+/* ── Labels ── */
+.tc-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.tc-label {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+/* ── Titre ── */
+.tc-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+/* ── Footer ── */
+.tc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tc-priority {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tc-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.tc-due,
+.tc-attachment,
+.tc-comments {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tc-due-overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ── Assigné ── */
+.tc-assignee {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  border: 2px solid var(--card);
+}
+
+/* ========================================
+   TaskCard Styles
+   ======================================== */
+
+.tc-card {
+  background: var(--bg-main, #ffffff);
+  border-radius: var(--radius, 8px);
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tc-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Labels */
+.tc-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tc-label {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--bg-light, #f1f5f9);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.tc-label-more {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 2px 0;
+}
+
+/* Titre */
+.tc-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main, #1e293b);
+  line-height: 1.4;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Footer (Assigné + Icônes) */
+.tc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border, #f1f5f9);
+}
+
+.tc-assignee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tc-assignee-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-light, #dbeafe);
+  color: var(--primary, #3b82f6);
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tc-assignee-name {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tc-unassigned {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.tc-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tc-icon {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Titre modifiable directement sur la carte */
+.tc-title-input {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main, #1e293b);
+  background: var(--bg-light, #f8fafc);
+  border: 1px solid var(--primary, #3b82f6);
+  border-radius: 4px;
+  padding: 4px 6px;
+  margin: 0;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}

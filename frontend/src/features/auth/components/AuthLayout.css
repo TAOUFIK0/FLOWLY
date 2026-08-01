@@ -1,0 +1,260 @@
+/* ========================================
+   AuthLayout — Styles dédiés
+   Préfixe : al
+   ======================================== */
+
+.al-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+/* ── Blobs animés ── */
+.al-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.al-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.al-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: -100px;
+  right: -100px;
+  animation: al-float1 8s ease-in-out infinite;
+}
+
+.al-blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  bottom: -50px;
+  left: -80px;
+  animation: al-float2 10s ease-in-out infinite;
+}
+
+.al-blob-3 {
+  width: 300px;
+  height: 300px;
+  background: var(--info);
+  top: 40%;
+  left: 50%;
+  animation: al-float3 12s ease-in-out infinite;
+}
+
+@keyframes al-float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.1); }
+}
+
+@keyframes al-float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.05); }
+}
+
+@keyframes al-float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* ── Main ── */
+.al-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 68px);
+  padding: 40px 24px 80px;
+}
+
+/* ── Carte ── */
+.al-card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-xl);
+  animation: al-cardIn 0.5s ease forwards;
+}
+
+[data-theme="dark"] .al-card {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+@keyframes al-cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── En-tête carte ── */
+.al-card-head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.al-logo-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  color: var(--text-inverse);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+.al-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.al-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* ── Erreur ── */
+.al-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #991B1B;
+  animation: al-cardIn 0.3s ease;
+}
+
+.al-error span {
+  flex: 1;
+}
+
+.al-error-close {
+  background: none;
+  color: #991B1B;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 4px;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.al-error-close:hover {
+  opacity: 1;
+}
+
+/* ── Séparateur ── */
+.al-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.al-divider::before,
+.al-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.al-divider span {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Sociaux ── */
+.al-socials {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.al-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.al-social-btn:hover {
+  background: var(--bg-dark);
+  border-color: var(--text-muted);
+}
+
+/* ── Pied de carte ── */
+.al-card-foot {
+  text-align: center;
+}
+
+.al-card-foot p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.al-card-link {
+  color: var(--primary-dark);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.al-card-link:hover {
+  color: var(--primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .al-card {
+    padding: 32px 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .al-title {
+    font-size: 22px;
+  }
+
+  .al-socials {
+    flex-direction: column;
+  }
+}

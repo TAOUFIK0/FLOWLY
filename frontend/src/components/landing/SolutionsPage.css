@@ -1,0 +1,474 @@
+/* ========================================
+   SolutionsPage — Styles dédiés
+   Préfixe : sp
+   ======================================== */
+
+.sp-page {
+  overflow-x: hidden;
+}
+
+/* Titre de section réutilisable */
+.sp-section-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.sp-section-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* ══════════════════════════════════════
+   HERO
+   ══════════════════════════════════════ */
+.sp-hero {
+  padding: 140px 0 64px;
+  text-align: center;
+  background: linear-gradient(165deg, var(--primary-50) 0%, var(--bg) 60%);
+}
+
+[data-theme="dark"] .sp-hero {
+  background: linear-gradient(165deg, var(--bg) 0%, var(--bg-dark) 60%);
+}
+
+.sp-hero-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sp-hero-container .badge {
+  margin-bottom: 20px;
+}
+
+.sp-hero-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.sp-hero-accent {
+  color: var(--primary);
+}
+
+.sp-hero-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   SOLUTIONS PAR ÉQUIPE
+   ══════════════════════════════════════ */
+.sp-teams {
+  padding: 72px 0;
+  background: var(--bg);
+}
+
+.sp-teams-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sp-teams-container .sp-section-subtitle {
+  margin-bottom: 40px;
+}
+
+.sp-teams-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.sp-team-card {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.sp-team-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* Image */
+.sp-team-image-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+
+.sp-team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sp-team-card:hover .sp-team-image {
+  transform: scale(1.04);
+}
+
+.sp-team-icon {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* Contenu */
+.sp-team-content {
+  padding: 28px;
+}
+
+.sp-team-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.sp-team-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.sp-team-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sp-team-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.sp-team-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap var(--transition-fast);
+}
+
+.sp-team-link:hover {
+  gap: 10px;
+}
+
+/* ══════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════ */
+.sp-usecases {
+  padding: 72px 0;
+  background: var(--bg-dark);
+}
+
+.sp-usecases-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.sp-usecases-container .sp-section-subtitle {
+  margin: 0 auto 40px;
+}
+
+.sp-usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sp-usecase-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.sp-usecase-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.sp-usecase-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.sp-usecase-text {
+  min-width: 0;
+}
+
+.sp-usecase-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.sp-usecase-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════
+   RÔLES
+   ══════════════════════════════════════ */
+.sp-roles {
+  padding: 72px 0;
+  background: var(--bg);
+}
+
+.sp-roles-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.sp-roles-container .sp-section-subtitle {
+  margin: 0 auto 40px;
+}
+
+.sp-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.sp-role-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 0 28px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-role-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Featured */
+.sp-role-featured {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.12);
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.sp-role-featured:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.18);
+}
+
+.sp-role-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 16px;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Header rôle */
+.sp-role-header {
+  padding: 28px 0 24px;
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 24px;
+}
+
+.sp-role-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.sp-role-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Features rôle */
+.sp-role-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.sp-role-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: left;
+}
+
+/* CTA rôle */
+.sp-role-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════
+   CTA BOTTOM
+   ══════════════════════════════════════ */
+.sp-bottom {
+  padding: 80px 0;
+  background: var(--bg-dark);
+}
+
+.sp-bottom-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.sp-bottom-container h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.sp-bottom-container p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.sp-bottom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .sp-teams-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .sp-roles-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .sp-role-featured {
+    transform: none;
+  }
+
+  .sp-role-featured:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .sp-hero {
+    padding: 120px 0 48px;
+  }
+
+  .sp-usecases-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sp-bottom-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sp-bottom-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-hero {
+    padding: 100px 0 36px;
+  }
+
+  .sp-usecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-team-content {
+    padding: 20px;
+  }
+
+  .sp-usecase-card {
+    padding: 18px;
+  }
+
+  .sp-role-card {
+    padding: 0 20px 20px;
+  }
+
+  .sp-role-title {
+    font-size: 20px;
+  }
+}

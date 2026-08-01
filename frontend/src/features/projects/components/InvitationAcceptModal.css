@@ -1,0 +1,321 @@
+/* ========================================
+   InvitationAcceptModal — Styles
+   ======================================== */
+
+.iam-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 25, 0.55);
+   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  animation: iamFadeIn 0.2s ease;
+}
+
+.iam-modal {
+  background: var(--bg-card, #fff);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.35);
+  animation: iamSlideUp 0.25s ease;
+}
+
+/* ── Header ── */
+.iam-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border, #eceef2);
+}
+
+.iam-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.iam-close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--text-muted, #8a93a6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.iam-close:hover {
+  background: var(--bg-dark, #f4f5f8);
+  color: var(--text, #1a1a1a);
+}
+
+.iam-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+}
+
+/* ── Carte projet ── */
+.iam-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border, #eceef2);
+}
+
+.iam-card-color {
+  height: 5px;
+  width: 100%;
+}
+
+.iam-card-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.iam-card-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--primary-light, #eef0ff);
+  color: var(--primary, #5b6eff);
+  flex-shrink: 0;
+}
+
+.iam-card-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.iam-card-id {
+  font-size: 0.72rem;
+  color: var(--text-muted, #8a93a6);
+}
+
+/* ── Détails ── */
+.iam-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.iam-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.iam-detail-label {
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a93a6);
+  font-weight: 500;
+}
+
+.iam-detail-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.iam-detail-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.iam-avatar {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary, #5b6eff);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Rôle ── */
+.iam-role {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.iam-role-owner   { background: var(--warning-light, #fff4de); color: var(--warning, #b8860b); }
+.iam-role-manager { background: var(--info-light, #e4f6f7); color: var(--info, #1d8e93); }
+.iam-role-member  { background: var(--primary-light, #eef0ff); color: var(--primary, #5b6eff); }
+
+.iam-role-icon { flex-shrink: 0; }
+.iamo-owner   { color: var(--warning, #b8860b); }
+.iamo-manager { color: var(--info, #1d8e93); }
+.iamo-member  { color: var(--primary, #5b6eff); }
+
+/* ── Message personnel ── */
+.iam-message {
+  background: var(--bg-dark, #f7f7fa);
+  border-left: 3px solid var(--primary, #5b6eff);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.iam-message-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted, #8a93a6);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.iam-message-text {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text, #2a2a2a);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Erreur ── */
+.iam-error {
+  background: var(--danger-light, #fdeaea);
+  color: var(--danger, #d64545);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ── Actions ── */
+.iam-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.iam-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border: 1px solid transparent;
+}
+.iam-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.iam-btn-decline {
+  background: transparent;
+  border-color: var(--border, #dde0e8);
+  color: var(--text-muted, #6b7284);
+}
+.iam-btn-decline:hover:not(:disabled) {
+  background: var(--danger-light, #fdeaea);
+  border-color: var(--danger, #d64545);
+  color: var(--danger, #d64545);
+}
+
+.iam-btn-accept {
+  background: var(--primary, #5b6eff);
+  color: #fff;
+  box-shadow: 0 8px 20px -8px rgba(91, 110, 255, 0.5);
+}
+.iam-btn-accept:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -8px rgba(91, 110, 255, 0.6);
+}
+
+.iam-spin {
+  animation: iamSpin 0.9s linear infinite;
+}
+
+/* ── État résultat (succès / refus) ── */
+.iam-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 44px 28px 36px;
+}
+
+.iam-result-icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.iam-result-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.iam-result-project {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary, #5b6eff);
+  margin: 0;
+}
+
+.iam-result-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted, #8a93a6);
+  max-width: 320px;
+  line-height: 1.55;
+  margin: 4px 0 10px;
+}
+
+/* ── Animations ── */
+@keyframes iamFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes iamSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes iamSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 420px) {
+  .iam-actions {
+    flex-direction: column-reverse;
+  }
+}

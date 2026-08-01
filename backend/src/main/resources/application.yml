@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/collabdb
+      auto-index-creation: true
+
+app:
+  jwt:
+    secret: FlowlySecretKey2025SuperLongEtSecurisePourJWT256Bits
+    expiration: 86400000
+
+logging:
+  level:
+    root: INFO
+    com.projet.collab: DEBUG
+    org.springframework.security: DEBUG

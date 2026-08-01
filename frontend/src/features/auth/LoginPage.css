@@ -1,0 +1,50 @@
+/* ========================================
+   LoginPage — Styles dédiés
+   Préfixe : lg
+   ======================================== */
+
+.lg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lg-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.lg-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.lg-checkbox input {
+  accent-color: var(--primary);
+}
+
+.lg-forgot {
+  color: var(--primary-dark);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.lg-forgot:hover {
+  color: var(--primary);
+}
+
+.lg-submit {
+  margin-top: 4px;
+  height: 48px;
+}
+
+.lg-submit .spinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}

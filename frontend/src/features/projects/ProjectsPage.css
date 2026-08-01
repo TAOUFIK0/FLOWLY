@@ -1,0 +1,250 @@
+/* ========================================
+   ProjectsPage — Styles dédiés
+   Préfixe : pp
+   ======================================== */
+
+.pp-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.pp-main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 40px 48px;
+}
+
+/* ── Header ── */
+.pp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.pp-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.pp-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* ── Toolbar ── */
+.pp-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.pp-search {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+
+.pp-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.pp-search-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 40px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text);
+  transition: all var(--transition-fast);
+}
+
+.pp-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.pp-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.pp-view-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 3px;
+}
+
+.pp-view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: none;
+  transition: all var(--transition-fast);
+}
+
+.pp-view-btn:hover {
+  color: var(--text);
+}
+
+.pp-view-active {
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+/* ── Erreur ── */
+.pp-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;
+  margin-bottom: 24px;
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: #991B1B;
+}
+
+.pp-error button {
+  padding: 5px 14px;
+  background: var(--danger);
+  color: var(--text-inverse);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Loader ── */
+.pp-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* ── Empty ── */
+.pp-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.pp-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.pp-empty h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.pp-empty p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 360px;
+}
+
+/* ── Grid ── */
+.pp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.pp-grid-list {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
+.pp-grid-list .bc-card {
+  display: grid;
+  grid-template-columns: 5px 1fr;
+}
+
+.pp-grid-list .bc-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.pp-grid-list .bc-stats,
+.pp-grid-list .bc-progress,
+.pp-grid-list .bc-desc {
+  display: none;
+}
+
+.pp-grid-list .bc-footer {
+  margin-top: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pp-main {
+    margin-left: 0;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .pp-toolbar {
+    flex-direction: column;
+  }
+
+  .pp-search {
+    max-width: none;
+    width: 100%;
+  }
+
+  .pp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pp-main {
+    padding: 16px;
+  }
+
+  .pp-title {
+    font-size: 22px;
+  }
+}

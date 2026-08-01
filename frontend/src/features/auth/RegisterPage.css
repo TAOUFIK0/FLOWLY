@@ -1,0 +1,21 @@
+/* ========================================
+   RegisterPage — Styles dédiés
+   Préfixe : rg
+   ======================================== */
+
+.rg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rg-submit {
+  margin-top: 4px;
+  height: 48px;
+}
+
+.rg-submit .spinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}

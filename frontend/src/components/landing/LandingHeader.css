@@ -1,0 +1,337 @@
+/* ========================================
+   LandingHeader — Styles dédiés
+   Préfixe : lh
+   ======================================== */
+
+/* ── Header ── */
+.lh-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: all var(--transition);
+}
+
+.lh-scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  height: 60px;
+}
+
+[data-theme="dark"] .lh-header {
+  background: rgba(15, 23, 42, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+
+[data-theme="dark"] .lh-scrolled {
+  background: rgba(15, 23, 42, 0.97);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.lh-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Logo ── */
+.lh-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.lh-logo:hover {
+  opacity: 0.8;
+}
+
+.lh-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-inverse);
+}
+
+.lh-logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  letter-spacing: -0.02em;
+}
+
+[data-theme="dark"] .lh-logo-text {
+  color: var(--primary-light);
+}
+
+/* ── Navigation desktop ── */
+.lh-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.lh-nav-item {
+  position: relative;
+}
+
+.lh-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.lh-nav-link:hover {
+  color: var(--text);
+  background: var(--bg-dark);
+}
+
+.lh-nav-active {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.lh-nav-chevron {
+  transition: transform var(--transition-fast);
+}
+
+.lh-submenu-open .lh-nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Sous-menu dropdown ── */
+.lh-submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+.lh-submenu-open .lh-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lh-submenu-inner {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  min-width: 200px;
+}
+
+.lh-submenu-link {
+  display: block;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.lh-submenu-link:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* ── Actions desktop ── */
+.lh-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.lh-action-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.lh-action-link:hover {
+  color: var(--text);
+}
+
+.lh-cta {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+
+/* ── Burger mobile ── */
+.lh-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  background: none;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.lh-burger:hover {
+  background: var(--bg-dark);
+}
+
+/* ── Menu mobile overlay ── */
+.lh-mobile {
+  position: fixed;
+  inset: 0;
+  top: 68px;
+  z-index: 899;
+  background: var(--card);
+  overflow-y: auto;
+  padding: 0 24px 32px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition);
+}
+
+.lh-mobile-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lh-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.lh-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  background: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: color var(--transition-fast);
+  text-align: left;
+  width: 100%;
+}
+
+.lh-mobile-link:hover {
+  color: var(--primary);
+}
+
+.lh-mobile-chevron {
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.lh-mobile-chevron-open {
+  transform: rotate(180deg);
+}
+
+/* Sous-menu mobile */
+.lh-mobile-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition);
+}
+
+.lh-mobile-submenu-open {
+  max-height: 400px;
+}
+
+.lh-mobile-sublink {
+  display: block;
+  padding: 10px 0 10px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.lh-mobile-sublink:hover {
+  color: var(--primary);
+}
+
+/* Actions mobile */
+.lh-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .lh-nav-desktop,
+  .lh-actions {
+    display: none;
+  }
+
+  .lh-burger {
+    display: flex;
+  }
+
+  .lh-container {
+    justify-content: space-between;
+  }
+
+  .lh-scrolled + .lh-mobile,
+  .lh-mobile {
+    top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lh-container {
+    padding: 0 16px;
+  }
+
+  .lh-logo-text {
+    font-size: 18px;
+  }
+
+  .lh-mobile {
+    padding: 0 16px 24px;
+  }
+}
+

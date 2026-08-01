@@ -1,0 +1,484 @@
+/* ========================================
+   LandingFooter — Styles dédiés
+   Préfixe : lf
+   ======================================== */
+
+.lf-footer {
+  background: var(--text);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 64px 0 0;
+}
+
+[data-theme="dark"] .lf-footer {
+  background: #070B14;
+}
+
+.lf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Top ── */
+.lf-top {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 60px;
+}
+
+/* Brand */
+.lf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  transition: opacity var(--transition-fast);
+}
+
+.lf-logo:hover {
+  opacity: 0.8;
+}
+
+.lf-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-inverse);
+}
+
+.lf-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.lf-brand-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 280px;
+}
+
+/* Colonnes */
+.lf-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.lf-column-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+
+.lf-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lf-column-link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition-fast);
+}
+
+.lf-column-link:hover {
+  color: #fff;
+}
+
+/* ── Séparateur ── */
+.lf-separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 48px 0 24px;
+}
+
+/* ── Bottom ── */
+.lf-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.lf-copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lf-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.lf-bottom-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-fast);
+}
+
+.lf-bottom-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .lf-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lf-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lf-footer {
+    padding-top: 48px;
+  }
+
+  .lf-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .lf-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}/* ========================================
+   LandingFooter — Styles dédiés
+   Préfixe : lf
+   ======================================== */
+
+.lf-footer {
+  background: var(--text);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 64px 0 0;
+}
+
+[data-theme="dark"] .lf-footer {
+  background: #070B14;
+}
+
+.lf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Top ── */
+.lf-top {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 60px;
+}
+
+/* Brand */
+.lf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  transition: opacity var(--transition-fast);
+}
+
+.lf-logo:hover {
+  opacity: 0.8;
+}
+
+.lf-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-inverse);
+}
+
+.lf-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.lf-brand-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 280px;
+}
+
+/* Colonnes */
+.lf-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.lf-column-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+
+.lf-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lf-column-link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition-fast);
+}
+
+.lf-column-link:hover {
+  color: #fff;
+}
+
+/* ── Séparateur ── */
+.lf-separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 48px 0 24px;
+}
+
+/* ── Bottom ── */
+.lf-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.lf-copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lf-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.lf-bottom-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-fast);
+}
+
+.lf-bottom-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .lf-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lf-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lf-footer {
+    padding-top: 48px;
+  }
+
+  .lf-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .lf-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}/* ========================================
+   LandingFooter — Styles dédiés
+   Préfixe : lf
+   ======================================== */
+
+.lf-footer {
+  background: var(--text);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 64px 0 0;
+}
+
+[data-theme="dark"] .lf-footer {
+  background: #070B14;
+}
+
+.lf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Top ── */
+.lf-top {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 60px;
+}
+
+/* Brand */
+.lf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  transition: opacity var(--transition-fast);
+}
+
+.lf-logo:hover {
+  opacity: 0.8;
+}
+
+.lf-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-inverse);
+}
+
+.lf-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.lf-brand-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 280px;
+}
+
+/* Colonnes */
+.lf-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.lf-column-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+
+.lf-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lf-column-link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition-fast);
+}
+
+.lf-column-link:hover {
+  color: #fff;
+}
+
+/* ── Séparateur ── */
+.lf-separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 48px 0 24px;
+}
+
+/* ── Bottom ── */
+.lf-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.lf-copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lf-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.lf-bottom-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-fast);
+}
+
+.lf-bottom-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .lf-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lf-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lf-footer {
+    padding-top: 48px;
+  }
+
+  .lf-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .lf-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
