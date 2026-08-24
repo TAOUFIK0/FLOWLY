@@ -26,7 +26,7 @@ docker compose up --build
 - Rôles ADMIN / MANAGER / MEMBER, contrôlés côté backend via `@PreAuthorize`
 - Gestion centralisée des erreurs (`@RestControllerAdvice`)
 
-## Ce qu'il te reste à faire (volontairement laissé en l'état)
+## 
 - Le rôle MANAGER n'a pas encore de restriction spécifique sur ses propres projets — à ajouter dans `ProjectService`
 - Sous-tâches : le calcul de progression existe (`TaskService.computeSubtaskProgress`) mais n'est pas encore exposé par un endpoint ni affiché dans l'UI
 - Drag & drop réel sur le Kanban (actuellement un simple `<select>`) — voir le TODO dans `KanbanBoard.jsx`
