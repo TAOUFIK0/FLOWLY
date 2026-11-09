@@ -47,3 +47,19 @@ Voir `docs/architecture.md` pour l'organisation détaillée du code et `docs/dat
 4. Brancher `connectWebSocket()` après un login réussi
 5. Ajouter les filtres et la pagination
 6. Écrire les tests au fur et à mesure, pas à la fin
+
+## CI/CD avec GitLab
+
+Le fichier `.gitlab-ci.yml` définit le pipeline GitLab CI/CD :
+
+- **Validate** : tests Maven du backend et build du frontend ;
+- **Build** : construction des images Docker backend et frontend, puis publication
+  dans le GitLab Container Registry sur la branche principale ;
+- **Deploy** : déploiement staging manuel via SSH, après configuration des variables
+  `STAGING_HOST`, `STAGING_USER`, `STAGING_SSH_PRIVATE_KEY`, `STAGING_APP_PATH`
+  et `STAGING_URL`.
+
+Pour l'exécuter, importer ce dépôt GitHub dans un nouveau projet GitLab ou le
+connecter comme dépôt miroir, puis activer un GitLab Runner Docker. Chaque push
+déclenche les étapes de validation et de build ; le job `deploy_staging` est
+lancé depuis le bouton **Play** de GitLab.
